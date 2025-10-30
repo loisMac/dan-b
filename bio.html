@@ -4,14 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Artist Bio | Dan Brown</title>
+
+  <style>
+    html { background:#1c1c1c; color-scheme:dark light; visibility:hidden; }
+  </style>
+  <script>
+    const t = localStorage.getItem('theme');
+    if (t === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.style.background = '#faf9f5';
+    }
+    document.documentElement.style.visibility='visible';
+  </script>
+
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
+
 <body>
   <header class="navbar">
     <div class="container nav-wrapper">
       <h1 class="logo"><a href="index.html">Dan Brown</a></h1>
-      <nav>
-        <ul class="nav-links">
+
+      <nav id="nav-menu" class="nav-links">
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="bio.html" class="active">Artist Bio</a></li>
           <li><a href="projects.html">Projects</a></li>
@@ -20,11 +37,15 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </header>
 
-  <main class="page">
-    <div class="container">
+  <main class="page fade-in">
+    <div class="container narrow">
       <h2>Artist Bio</h2>
       <p>Dan Brown is a performance artist based in Glasgow. His work investigates human behaviour, identity, and emotional storytelling through physical performance and movement. He has collaborated with national and international artists and theatre companies, crafting immersive and experimental works that explore the relationships between body, space, and audience.</p>
     </div>
@@ -33,7 +54,10 @@
   <footer class="footer">
     <div class="container">
       <p>© 2025 Dan Brown. All rights reserved.</p>
-    </div>
+    
+    <button id="themeToggle" class="theme-btn">dark mode</button>
+</div>
+
   </footer>
 </body>
 </html>

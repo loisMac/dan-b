@@ -3,15 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Dan Brown</title>
+  <title>Artist Bio | Dan Brown</title>
+
+  <style>
+    html { background:#1c1c1c; color-scheme:dark light; visibility:hidden; }
+  </style>
+  <script>
+    const t = localStorage.getItem('theme');
+    if (t === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.style.background = '#faf9f5';
+    }
+    document.documentElement.style.visibility='visible';
+  </script>
+
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
+
 <body>
   <header class="navbar">
     <div class="container nav-wrapper">
       <h1 class="logo"><a href="index.html">Dan Brown</a></h1>
-      <nav>
-        <ul class="nav-links">
+
+      <nav id="nav-menu" class="nav-links">
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="bio.html">Artist Bio</a></li>
           <li><a href="projects.html">Projects</a></li>
@@ -20,20 +37,39 @@
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </header>
 
-  <main class="page">
-    <div class="container">
+  <main class="page fade-in">
+    <div class="container narrow">
       <h2>Contact</h2>
       <p>For bookings, collaborations, or press enquiries:</p>
-      <p><a href="mailto:hello@example.com" class="email-link">hello@example.com</a></p>
+  
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+  
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
+  
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+  
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+  
+
     </div>
   </main>
 
   <footer class="footer">
     <div class="container">
       <p>© 2025 Dan Brown. All rights reserved.</p>
+      <button id="themeToggle" class="theme-btn">dark mode</button>
     </div>
   </footer>
 </body>

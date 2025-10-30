@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        /* stop light flash before dark mode applies */
+        html {
+          background: #1c1c1c;
+          color-scheme: dark light; /* tells the browser both palettes exist */
+        }
+      </style>
+      <script>
+        // apply saved theme before CSS paints
+        const t = localStorage.getItem('theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.style.background = '#faf9f5';
+        }
+      </script>
+      
+      
+      
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dan Brown | Performance Artist · Glasgow</title>
+  <script>
+    // Apply saved theme before CSS loads
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+  
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="navbar">
     <div class="container nav-wrapper">
       <h1 class="logo"><a href="index.html">Dan Brown</a></h1>
-      <nav>
-        <ul class="nav-links">
+
+      <nav id="nav-menu" class="nav-links">
+        <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="bio.html">Artist Bio</a></li>
           <li><a href="projects.html">Projects</a></li>
@@ -20,6 +48,10 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </header>
 
@@ -34,7 +66,10 @@
     <div class="container">
       <p>© 2025 Dan Brown. All rights reserved.</p>
       <p>Based in Glasgow, Scotland.</p>
-    </div>
+    
+    <button id="themeToggle" class="theme-btn">dark mode</button>
+</div>
+
   </footer>
 </body>
 </html>
