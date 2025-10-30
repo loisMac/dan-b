@@ -374,11 +374,28 @@ a:hover {
     animation: slideDown 0.3s ease;
     z-index: 999;
   }
+  .marquee {
+    text-align: left;
+  }
 
   .marquee span {
-    font-size: 1rem;
+    display: inline-block;
+    font-size: 1.5rem;
     letter-spacing: 0.1em;
-    max-width: 95%;
+    animation: mobileScroll 10s linear infinite;
+    transform: translateX(100%);
+  }
+
+  @keyframes mobileScroll {
+    0% {
+      transform: translateX(100%);
+    }
+    90% {
+      transform: translateX(-110%);
+    }
+    100% {
+      transform: translateX(-110%);
+    }
   }
 
   @keyframes slideDown {
@@ -439,9 +456,8 @@ a:hover {
   }
 
   .marquee span {
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    max-width: 95%;
+    font-size: 1.3rem;
+    animation-duration: 12s; /* slightly slower for small screens */
   }
 
   .footer {
