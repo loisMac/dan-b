@@ -51,3 +51,31 @@ themeBtn?.addEventListener('click', () => {
     });
   });
 });
+
+const form = document.querySelector(".contact-form");
+const statusMsg = document.getElementById("form-status");
+
+form?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      statusMsg.textContent = "Thanks for reaching out — your message has been sent!";
+      statusMsg.classList.add("success");
+      form.reset();
+    } else {
+      statusMsg.textContent = "Oops — something went wrong. Please try again.";
+      statusMsg.classList.add("error");
+    }
+  } catch (error) {
+    statusMsg.textContent = "There was a problem sending your message.";
+    statusMsg.classList.add("error");
+  }
+});
