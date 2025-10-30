@@ -80,7 +80,7 @@ a:hover {
     font-size: 1.6rem;
     letter-spacing: 0.15em;
     text-transform: lowercase;
-    color: #6f91a7;
+    color: #1c1c1c;
     opacity: 0.9;
     animation: floatScroll 35s linear infinite, softPulse 6s ease-in-out infinite;
     text-shadow: 0 0 8px rgba(111,145,167,0.25);
@@ -542,7 +542,7 @@ html.dark .gallery video {
 }
 
 html.dark .marquee span {
-    color: #a6c1d2;
+    color: #f4f4f4;
     text-shadow: 0 0 10px rgba(166,193,210,0.3);
   }
   
