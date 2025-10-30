@@ -304,7 +304,7 @@ a:hover {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 85px;
+    top: 100%;
     right: 0;
     background: rgba(250, 249, 245, 0.98);
     width: 100%;
@@ -316,7 +316,9 @@ a:hover {
   .nav-links.open ul {
     display: flex;
     animation: slideDown 0.3s ease;
+    z-index: 999;
   }
+  
 
   @keyframes slideDown {
     from {
