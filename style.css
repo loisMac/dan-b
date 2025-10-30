@@ -142,7 +142,7 @@ a:hover {
 
 .hero p {
   font-size: 1.15rem;
-  color: #6f91a7;
+  color: #1f1f1f;
   max-width: 550px;
   margin: 0 auto;
 }
@@ -241,7 +241,7 @@ a:hover {
     padding: 12px 26px;
     border: 2px solid #6f91a7;
     background: transparent;
-    color: #1f1f1f;
+    color: #6f91a7;
     font-weight: 500;
     text-transform: lowercase;
     border-radius: 30px;
