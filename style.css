@@ -3,6 +3,18 @@
 -------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600&display=swap');
 
+:root {
+    --hero-bg: #faf9f5; /* light mode default */
+    --hero-text: #1f1f1f;
+    --hero-subtext: #6f91a7;
+  }
+  
+  html.dark {
+    --hero-bg: #1c1c1c; /* dark mode background */
+    --hero-text: #f4f4f4;
+    --hero-subtext: #a6c1d2;
+  }
+  
 /* -------------------------
    BASE
 -------------------------- */
@@ -127,7 +139,8 @@ a:hover {
 .hero {
     padding: 180px 0 150px;
     text-align: center;
-    background-color: var(--hero-bg, #faf9f5);
+    background-color: var(--hero-bg);
+    color: var(--hero-text);
     transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
   }
   
@@ -142,7 +155,7 @@ a:hover {
 
 .hero p {
   font-size: 1.15rem;
-  color: #1f1f1f;
+  color: var(--hero-subtext);
   max-width: 550px;
   margin: 0 auto;
 }
@@ -441,14 +454,6 @@ html.dark
     color: #1c1c1c;
   }
 
-  html.dark .hero {
-    --hero-bg: #1c1c1c;
-    color: #f4f4f4;
-  }
-
-  html.dark .hero p {
-    color: #a6c1d2;
-  }
 
   /* Ensure all inner pages go dark too */
 html.dark .page {
