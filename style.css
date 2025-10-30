@@ -373,6 +373,11 @@ a:hover {
     z-index: 999;
   }
 
+  .marquee span {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
   @keyframes slideDown {
     from {
       opacity: 0;
@@ -428,6 +433,11 @@ a:hover {
 
   .page p {
     font-size: 1rem;
+  }
+
+  .marquee span {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
   }
 
   .footer {
