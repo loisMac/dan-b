@@ -92,7 +92,7 @@ a:hover {
   /* softer movement */
   @keyframes softPulse {
     0%, 100% { opacity: 0.9; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+    50% { opacity: 1; transform: scale(1.035); }
   }
   
   
