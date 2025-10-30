@@ -95,6 +95,35 @@ a:hover {
     50% { opacity: 1; transform: scale(1.035); }
   }
   
+  .instagram-feed {
+    margin-top: 80px;
+    text-align: center;
+  }
+  
+  .instagram-feed h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    text-transform: lowercase;
+    margin-bottom: 30px;
+  }
+  
+  .insta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  .instagram-media {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .instagram-media:hover {
+    transform: scale(1.02);
+  }
   
 
 /* -------------------------
