@@ -14,18 +14,28 @@ hamburger?.addEventListener('click', () => {
 // -----------------------------
 const themeBtn = document.getElementById('themeToggle');
 
-// Load saved theme on page load
-if (localStorage.getItem('theme') === 'dark') {
+// Apply saved theme instantly before paint
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
   document.documentElement.classList.add('dark');
-  if (themeBtn) themeBtn.textContent = 'light mode';
-} else {
-  if (themeBtn) themeBtn.textContent = 'dark mode';
 }
+
+// Once DOM is ready, set correct button text
+window.addEventListener('DOMContentLoaded', () => {
+  if (savedTheme === 'dark') {
+    themeBtn.textContent = 'light mode';
+  } else {
+    themeBtn.textContent = 'dark mode';
+  }
+
+  // Add class to allow CSS transitions after initial load
+  document.documentElement.classList.add('theme-ready');
+});
 
 // Toggle dark/light mode
 themeBtn?.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  const isDark = document.documentElement.classList.contains('dark');
+  const root = document.documentElement;
+  const isDark = root.classList.toggle('dark');
 
   // Update button text
   themeBtn.textContent = isDark ? 'light mode' : 'dark mode';
@@ -33,11 +43,11 @@ themeBtn?.addEventListener('click', () => {
   // Save preference
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-  // Force repaint of key sections (prevents "stuck dark middle" glitch)
-  const repaintEls = document.querySelectorAll('body, .hero, .page, .footer');
-  repaintEls.forEach(el => {
-    el.style.display = 'none';
-    el.offsetHeight; // trigger reflow
-    el.style.display = '';
+  // Trigger a repaint to ensure all sections update instantly
+  requestAnimationFrame(() => {
+    document.querySelectorAll('body, .hero, .page, .footer').forEach(el => {
+      el.style.transform = 'translateZ(0)'; // triggers GPU repaint
+      setTimeout(() => (el.style.transform = ''), 50);
+    });
   });
 });
