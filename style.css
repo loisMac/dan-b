@@ -84,6 +84,8 @@ a:hover {
     opacity: 0.9;
     animation: floatScroll 35s linear infinite, softPulse 6s ease-in-out infinite;
     text-shadow: 0 0 8px rgba(111,145,167,0.25);
+    text-align: center;
+    white-space: nowrap;
   }
   
   
@@ -374,8 +376,9 @@ a:hover {
   }
 
   .marquee span {
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 0.1em;
+    max-width: 95%;
   }
 
   @keyframes slideDown {
@@ -436,8 +439,9 @@ a:hover {
   }
 
   .marquee span {
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05em;
+    max-width: 95%;
   }
 
   .footer {
